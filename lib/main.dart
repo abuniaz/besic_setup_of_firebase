@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.cyan,
                         fontSize: 48,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Signatra'),
                   ),
                 ),
               ),
