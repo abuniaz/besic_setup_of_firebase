@@ -40,31 +40,47 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       decoration: const InputDecoration(
                         hintText: 'Email',
                         suffixIcon: Icon(Icons.email),
                       ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter your Email';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
+                      keyboardType: TextInputType.text,
                       obscureText: true,
                       controller: passwoardController,
                       decoration: const InputDecoration(
                         hintText: 'Password',
                         suffixIcon: Icon(Icons.visibility_outlined),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 20,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter your Password';
+                        }
+                        return null;
+                      },
                     ),
                   ],
                 )),
+            const SizedBox(
+              height: 50,
+            ),
             RoundButton(
               title: 'Login',
-              onTap: () {},
+              onTap: () {
+                if (_formKey.currentState!.validate()) {}
+              },
             )
           ],
         ),
