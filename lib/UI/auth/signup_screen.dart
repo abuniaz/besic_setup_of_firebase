@@ -1,15 +1,17 @@
-import 'package:basic_firebase/UI/auth/signup_screen.dart';
+import 'package:basic_firebase/UI/auth/login_screen.dart';
+import 'package:flutter/material.dart';
+
 import 'package:basic_firebase/Widgets/round_button.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwoardController = TextEditingController();
@@ -26,9 +28,13 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text('Login'),
+        title: const Text('Sign up'),
         centerTitle: true,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -78,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 50,
             ),
             RoundButton(
-              title: 'Login',
+              title: 'Sign up',
               onTap: () {
                 if (_formKey.currentState!.validate()) {}
               },
@@ -89,15 +95,15 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Don't have an account?"),
+                const Text("Already have an account?"),
                 TextButton(
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => const SignUpScreen())));
+                              builder: ((context) => const LoginScreen())));
                     },
-                    child: const Text('Sign up'))
+                    child: const Text('Login'))
               ],
             )
           ],
