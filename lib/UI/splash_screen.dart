@@ -12,7 +12,6 @@ class _SplashScreenState extends State<SplashScreen> {
   SplashServices splashScreen = SplashServices();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     splashScreen.isLogin(context);
   }
